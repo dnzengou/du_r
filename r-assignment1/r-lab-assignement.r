@@ -69,7 +69,11 @@ subset
 # a/
 install.packages("car")
 
-load(car)
+# install.package("car")
+library(car)
+data(Prestige) # load the data
+str(Prestige)
+
 
 
 
