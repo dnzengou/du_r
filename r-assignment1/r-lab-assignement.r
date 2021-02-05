@@ -18,11 +18,20 @@ no_zero
 
 length(no_zero)
 
-YEAR <- c(2003,2004,2005,2006,2007,2008,2009,2010,2011)
-GENDER <- c("Female", "Male")
-#120 122 124 130 136 140 143 150 155
-#109 112 115 121 128 132 135 140 148
+YEAR <- c(2003,2004,2005,2006,2007,2008,2009,2010,2011,2003,2004,2005,2006,2007,2008,2009,2010,2011)
+GENDER <- c("Female","Female","Female","Female","Female","Female","Female","Female","Female","Male","Male","Male","Male","Male","Male","Male","Male","Male")
+W <- c(120,122,124,130,136,140,143,150,155,109,112,115,121,128,132,135,140,148)
 
+df <- data.frame(W,YEAR,GENDER)
+
+head(df, 5)
+
+#write.csv(df, "dataframe_nzengde.csv", row.names=FALSE)
+
+install.packages("readr")
+library(readr)
+
+write_csv(df, "dataframe_nzengde.csv")
 
 #data <- read.csv('https://raw.githubusercontent.com/dnzengou/du_r/main/r-assignment1/data/Freedman.csv')
 Freedman <- data.frame(read.csv('https://raw.githubusercontent.com/dnzengou/du_r/main/r-assignment1/data/Freedman.csv'))
