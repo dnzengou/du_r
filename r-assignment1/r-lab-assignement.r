@@ -67,14 +67,41 @@ subset <- Freedman_clean[FreedmanNonwhite_mean > 0.3]
 subset
 
 # a/
-install.packages("car")
+#install.packages("car")
 
-# install.package("car")
-library(car)
-data(Prestige) # load the data
-str(Prestige)
+#library(car)
 
+#install.packages("readr")
+#library(readr)
 
+#prestige <- read_csv("https://r-data.pmagunia.com/system/files/datasets/dataset-40754.csv")
+
+df_prestige <- read.csv("dataset-40754.csv")
+df_prestige <- data.frame(df_prestige)
+
+head(df_prestige, 5)
+
+# b/
+
+#sub_prestige_women <- data.frame(df_prestige[df_prestige["women"]>50])
+sub_prestige_women <- subset(df_prestige, df_prestige$women>50)
+
+head(sub_prestige_women,5)
+
+# c/ average prestige score with women > 50%
+
+mean_sub_prestige_women <- mean(sub_prestige_women$prestige)
+mean_sub_prestige_women
+
+# d/ average prestige score with women < 50%
+
+sub_prestige_women_50minus <- subset(df_prestige, df_prestige$women<50)
+
+mean_sub_prestige_women_50minus <- mean(sub_prestige_women_50minus$prestige)
+mean_sub_prestige_women_50minus
+
+# e/ for-loop to compute the average (mean) prestige score for the three different types of occupations.
+# Automatically store the three means in a vector. 
 
 
 
